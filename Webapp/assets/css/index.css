@@ -1,0 +1,37 @@
+a.no-style {
+    color: #000;
+    text-decoration: none;
+}
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.loader{
+  text-align: center;
+}
+
+#pageContent{
+  display: none;
+}
+
+.vertical-align {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+/* Small Devices, Tablets */
+
+@media only screen and (min-width: 768px) {}
+
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width: 992px) {}
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (min-width: 1200px) {
+
+}

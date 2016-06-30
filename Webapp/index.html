@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <title>Users List</title>
+</head>
+
+<body>
+
+    <div class="container wrapper">
+
+        <div class="modal fade" id="user-info-modal" role="dialog" tabindex="-1">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">User Information</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>
+                                        <span><i class="fa fa-user p-r-1"></i></span>
+                                        <span id="user-name">Jhon Doe</span>
+                                    </p>
+                                    <p>
+                                        <span><i class="fa fa-at p-r-1"></i></span>
+                                        <span id="user-usrname">jdoe</span>
+                                    </p>
+                                    <p>
+                                        <span><i class="fa fa-envelope p-r-1"></i></span>
+                                        <span id="user-email">jdoe@gmail.com</span>
+                                    </p>
+                                    <p>
+                                        <span><i class="fa fa-location-arrow p-r-1"></i>
+                                        <span id="user-city">City Name</span>
+                                    </p>
+                                    <p>
+                                        <span><i class="fa fa-phone p-r-1"></i>
+                                        <span id="user-phone">1-800-226</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="add-new-user" role="dialog" tabindex="-1">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                      <h4 class="modal-title" id="modalTitle"></h4>
+                  </div>
+                  <div class="modal-body">
+                      <div class="container-fluid">
+                        <div class="input-group">
+                          <input class="form-control" id="newUserName" placeholder="Name" type="text">
+                          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        </div>
+                        <br>
+                        <div class="input-group">
+                          <input class="form-control" id="newUserAlias" placeholder="Username" type="text">
+                          <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                        </div>
+                        <br>
+                        <div class="input-group">
+                          <input class="form-control" id="newUserEmail" placeholder="Email" type="email">
+                          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        </div>
+                        <br>
+                        <div class="input-group">
+                          <input class="form-control" id="newUserCity" placeholder="City" type="text">
+                          <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
+                        </div>
+                        <br>
+                        <div class="input-group">
+                          <input class="form-control" id="newUserPhone" placeholder="Phone" type="text">
+                          <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        </div>
+                        <input type="hidden" id="userId">
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" id="btnAdd" style="display:none;">Add</button>
+                      <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;">Update</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="not-found-modal" role="dialog" tabindex="-1">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                      <h4 class="modal-title">Information</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Not found</p>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="loader vertical-align" id="loading">
+            <i class="fa fa-cog fa-spin fa-5x fa-fw"></i>
+            <p class="lead">Loading</p>
+        </div>
+
+        <div id="pageContent">
+            <div class="jumbotron">
+                <h1>Users List</h1>
+                <p>A simple users list app</p>
+            </div>
+
+            <div class="row center-block">
+                <div class="input-group input-group-lg">
+                    <input class="form-control" type="text" placeholder="Type the username here..." required="">
+                    <span class="input-group-btn">
+                    <button class="btn btn-primary" id="btnSearch" type="button">
+                      <i class="fa fa-search"></i>
+                  </button>
+                  </span>
+                </div>
+                <div class="list-group" id="autocomplete">
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row center-block">
+                <p class="lead">Click on the user name to see details or click <a id="newUser">here</a> to add a new one</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group" id="users">
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <hr>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/index.js"></script>
+    <script type="text/javascript" src="assets/js/util.js"></script>
+    <script type="text/javascript" src="assets/js/Models/users.js"></script>
+    <script type="text/javascript" src="assets/js/Stores/userStore.js"></script>
+</body>
+
+</html>
