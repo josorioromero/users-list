@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+    <title>Users List</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/index.css">
-    <title>Users List</title>
 </head>
 
 <body>
@@ -24,28 +25,26 @@
                     <div class="modal-body">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <p>
-                                        <span><i class="fa fa-user p-r-1"></i></span>
-                                        <span id="user-name">Jhon Doe</span>
-                                    </p>
-                                    <p>
-                                        <span><i class="fa fa-at p-r-1"></i></span>
-                                        <span id="user-usrname">jdoe</span>
-                                    </p>
-                                    <p>
-                                        <span><i class="fa fa-envelope p-r-1"></i></span>
-                                        <span id="user-email">jdoe@gmail.com</span>
-                                    </p>
-                                    <p>
-                                        <span><i class="fa fa-location-arrow p-r-1"></i>
-                                        <span id="user-city">City Name</span>
-                                    </p>
-                                    <p>
-                                        <span><i class="fa fa-phone p-r-1"></i>
-                                        <span id="user-phone">1-800-226</span>
-                                    </p>
-                                </div>
+                                <p>
+                                    <span><i class="fa fa-user p-r-1"></i></span>
+                                    <span id="user-name">Jhon Doe</span>
+                                </p>
+                                <p>
+                                    <span><i class="fa fa-at p-r-1"></i></span>
+                                    <span id="user-usrname">jdoe</span>
+                                </p>
+                                <p>
+                                    <span><i class="fa fa-envelope p-r-1"></i></span>
+                                    <span id="user-email">jdoe@gmail.com</span>
+                                </p>
+                                <p>
+                                    <span><i class="fa fa-location-arrow p-r-1"></i>
+                                    <span id="user-city">City Name</span>
+                                </p>
+                                <p>
+                                    <span><i class="fa fa-phone p-r-1"></i>
+                                    <span id="user-phone">1-800-226</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -135,11 +134,16 @@
 
             <div class="row center-block">
                 <div class="input-group input-group-lg">
-                    <input class="form-control" type="text" placeholder="Type the username here..." required="">
-                    <span class="input-group-btn">
-                    <button class="btn btn-primary" id="btnSearch" type="button">
+                  <input class="form-control" id="inputSearch" type="text" placeholder="Type the username here...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" id="btnSearch" type="button" title="Click to show the user details">
                       <i class="fa fa-search"></i>
-                  </button>
+                    </button>
+                  </span>
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" id="btnClear" type="button" title="Click to empty the selection">
+                      <i class="fa fa-eraser"></i>
+                    </button>
                   </span>
                 </div>
                 <div class="list-group" id="autocomplete">

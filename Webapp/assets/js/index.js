@@ -1,9 +1,10 @@
 var users;
+
 /*Document.ready function*/
 $(function () {
     obtainUsers();
 
-    $("input[type='text']").keyup((e) => {
+    $("#inputSearch").keyup((e) => {
       autocomplete(e);
     });
 
@@ -11,12 +12,12 @@ $(function () {
       search(e);
     });
 
+    $("#btnClear").on("click", () => {
+      $("#inputSearch").val("");
+    });
+
     $("#newUser").on("click", () => {
-      $("#newUserName, #newUserAlias, #newUserEmail, #newUserCity, #newUserPhone").val("");
-      $("#btnAdd").show();
-      $("#btnUpdate").hide();
-      $("#modalTitle").text("Add New User");
-      $("#add-new-user").modal("show");
+      showNewUserForm();
     });
 
     $("#btnAdd").on("click", () => {
@@ -29,6 +30,14 @@ $(function () {
 });
 
 /*Functions definition*/
+function showNewUserForm(){
+  $("#newUserName, #newUserAlias, #newUserEmail, #newUserCity, #newUserPhone").val("");
+  $("#btnAdd").show();
+  $("#btnUpdate").hide();
+  $("#modalTitle").text("Add New User");
+  $("#add-new-user").modal("show");
+}
+
 function obtainUsers(){
     var store = new userStore();
 
