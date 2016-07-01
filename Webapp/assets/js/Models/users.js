@@ -4,16 +4,16 @@ function Users(usersList) {
     this.getAllUsers = () => {
         return this.usersList;
     }
+}
 
-    this.getById = (id) => {
-        return this.usersList.find((user) => {
-            return user._id === id;
-        });
-    }
+Users.prototype.getById = function (id) {
+    return this.usersList.find((user) => {
+        return user._id === id;
+    });
+}
 
-    this.getByName = (name) => {
-        return this.usersList.find((user) => {
-            return user.name.toLowerCase() === name.toLowerCase();
-        });
-    }
+Users.prototype.getByName = function (name) {
+    return this.usersList.find((user) => {
+        return user.name.toLowerCase() === name.toLowerCase();
+    });
 }
