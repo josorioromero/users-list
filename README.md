@@ -3,10 +3,15 @@ HTML site with JQuery and javascript to retrieve users from an API with Node.js 
 
 ##Instructions
 
+##Clone the repo
+`https://github.com/josorioromero/usersList.git`
+
 ###Backend: 
 Go the API folder and run the command `npm install` to get the dependencies and then `npm start` this is gonna start the server with the API receiving the requests on `http://localhost:8080/api/users`
 
 ###Website
 Go to the Webapp folder and open the index.html file or deploy it on a server. This example is using ES6 syntax to put in practice the new JavaScript standards, so you could have trouble if you use non ES6 compatible browsers as Edge, Opera and IE (or you can try Webpack to solve this =) )
+
+Have fun
 
 
